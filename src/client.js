@@ -1,11 +1,10 @@
-import dotenv from "dotenv";
 import { initializeFlatfile } from "@flatfile/javascript";
 
-dotenv.config();
+const server_url = "http://localhost:8080";
 
 //open existing space in modal
 window.openExistingFlatfileSpace = () => {
-  fetch((process.env.SERVER_URL ?? "http://localhost:8080") + "/space") // Make a request to the server endpoint
+  fetch(server_url + "/space") // Make a request to the server endpoint
     .then((response) => response.json())
     .then((space) => {
       const flatfileOptions = {
@@ -13,7 +12,7 @@ window.openExistingFlatfileSpace = () => {
           id: space && space.data && space.data.id,
           accessToken: space && space.data && space.data.accessToken,
         },
-        displayAsModal: true,
+        displayAsModal: false,
       };
       initializeFlatfile(flatfileOptions);
     })
