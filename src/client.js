@@ -25,7 +25,6 @@ window.openExistingFlatfileSpace = () => {
 window.initializeNewFlatfileSpace = (publishableKey, environmentId) => {
   const flatfileOptions = {
     publishableKey,
-    environmentId,
     displayAsModal: false,
     // Additional parameters...
   };
