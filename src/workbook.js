@@ -1,4 +1,4 @@
-export const config = {
+export const workbook = {
   name: "Employees workbook",
   sheets: [
     {

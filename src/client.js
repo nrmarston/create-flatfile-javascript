@@ -1,5 +1,5 @@
 import { initializeFlatfile } from "@flatfile/javascript";
-import { config } from "./config";
+import { workbook } from "./workbook";
 import { listener } from "./listener";
 const server_url = "http://localhost:8080";
 
@@ -32,7 +32,7 @@ window.initializeNewFlatfileSpace = ({publishableKey, environmentId}) => {
   const flatfileOptions = {
     publishableKey,
     displayAsModal: false,
-    workbook: config,
+    workbook,
     environmentId,
     listener,
     // Additional parameters...
