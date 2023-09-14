@@ -1,5 +1,6 @@
 import { initializeFlatfile } from "@flatfile/javascript";
-
+import { workbook } from "./workbook";
+import { listener } from "./listener";
 const server_url = "http://localhost:8080";
 
 //open existing space in modal
@@ -22,10 +23,18 @@ window.openExistingFlatfileSpace = () => {
 };
 
 //create a new space in modal
-window.initializeNewFlatfileSpace = (publishableKey, environmentId) => {
+window.initializeNewFlatfileSpace = ({publishableKey, environmentId}) => {
+  if (!publishableKey && !environmentId) {
+    throw new Error(
+      "You must provide a publishable key and an environment ID"
+    );
+  }
   const flatfileOptions = {
     publishableKey,
     displayAsModal: false,
+    workbook,
+    environmentId,
+    listener,
     // Additional parameters...
   };
 
