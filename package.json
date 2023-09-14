@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "start": "parcel public/index.html",
+    "start-advanced-mode": "parcel advanced/public/index.html",
     "server": "node advanced/src/server.mjs"
   },
   "keywords": [],
