@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "parcel public/index.html",
-    "server": "node src/server.mjs"
+    "server": "node advanced/src/server.mjs"
   },
   "keywords": [],
   "author": "",
