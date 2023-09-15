@@ -1,10 +1,13 @@
-import api from "@flatfile/api";
+import { FlatfileListener } from "@flatfile/listener";
+import api, { FlatfileClient } from "@flatfile/api";
 import { recordHook } from "@flatfile/plugin-record-hook";
 
-/**
- * Example Listener
- */
-export default function (listener) {
+const flatfile = new FlatfileClient({
+  token: process.env.FLATFILE_API_KEY,
+  environment: process.env.BASE_URL + "/v1",
+});
+
+export const listener = FlatfileListener.create((listener) => {
   listener.on("**", (event) => {
     console.log("Event =>", event);
   });
@@ -13,7 +16,6 @@ export default function (listener) {
     recordHook("contacts", (record) => {
       const firstName = record.get("firstName");
       console.log({ firstName });
-      // Getting the real types here would be nice but seems tricky
       record.set("lastName", "Rock");
       return record;
     })
@@ -22,7 +24,7 @@ export default function (listener) {
   listener.filter({ job: "workbook:submitActionFg" }, (configure) => {
     configure.on("job:ready", async ({ context: { jobId } }) => {
       try {
-        await api.jobs.ack(jobId, {
+        await flatfile.jobs.ack(jobId, {
           info: "Getting started.",
           progress: 10,
         });
@@ -30,7 +32,7 @@ export default function (listener) {
         // Make changes after cells in a Sheet have been updated
         console.log("Make changes here when an action is clicked");
 
-        await api.jobs.complete(jobId, {
+        await flatfile.jobs.complete(jobId, {
           outcome: {
             message: "This job is now complete.",
           },
@@ -38,7 +40,7 @@ export default function (listener) {
       } catch (error) {
         console.error("Error:", error.stack);
 
-        await api.jobs.fail(jobId, {
+        await flatfile.jobs.fail(jobId, {
           outcome: {
             message: "This job encountered an error.",
           },
@@ -46,4 +48,4 @@ export default function (listener) {
       }
     });
   });
-}
+});
