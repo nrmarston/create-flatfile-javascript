@@ -22,17 +22,16 @@ function customListenerLogic(client) {
 }
 
 export default function configureFlatfileListener(listener) {
-  // If a listener is provided, configure it
+  // If a listener is provided (server-side), configure it
   if (listener) {
     customListenerLogic(listener); // Reuse the custom listener logic function
     return listener; // Return the configured listener
   } else {
-    // If a listener is not provided, create a new one and apply the custom logic
+    // If a listener is not provided (client-side), create a new one and apply the custom logic
     console.log("make a workbook");
     const newListener = FlatfileListener.create((client) => {
       customListenerLogic(client); // Reuse the custom listener logic function
     });
-
     return newListener;
     s;
   }
