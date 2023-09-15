@@ -8,8 +8,11 @@ dotenv.config();
 const app = express();
 const port = 8080;
 
+console.log(process.env.SPACE_ID);
+console.log(process.env.FLATFILE_API_KEY);
+
 const flatfile = new FlatfileClient({
-  token: process.env.SECRET_KEY,
+  token: process.env.FLATFILE_API_KEY,
   environment: process.env.BASE_URL + "/v1",
 });
 
