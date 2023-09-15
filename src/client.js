@@ -1,6 +1,6 @@
 import { initializeFlatfile } from "@flatfile/javascript";
 import { workbook } from "./workbook";
-import { listener } from "../listeners/simple";
+import { configureFlatfileListener } from "../listeners/simple";
 const server_url = "http://localhost:8080";
 
 //open existing space in modal
@@ -34,7 +34,7 @@ window.initializeNewFlatfileSpace = ({ publishableKey, environmentId }) => {
     displayAsModal: true,
     workbook,
     environmentId,
-    listener,
+    listener: configureFlatfileListener(),
     // Additional parameters...
   };
 
