@@ -7,7 +7,7 @@ Choose this option when users might need to wait or can’t finish in one go. It
 
 ```
 BASE_URL=https://platform.flatfile.com/api
-FLATFILE_API_KEY=sk_1234 (your secret key)
+FLATFILE_API_KEY=sk_1234
 SPACE_ID=us_sp_1234
 ```
 
