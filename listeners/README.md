@@ -16,8 +16,10 @@ Reference a listener in your flatfileOptions, that's it! Note: not all npm packa
 
 1. In your `.env`, make sure you have the follow:
 
+```
 FLATFILE_ENVIRONMENT_ID=us_env_123456
 FLATFILE_API_KEY=sk_123456 (your secret key)
+```
 
 2. Run `npx flatfile develop <file path>` from terminal to launch a local listener.
 

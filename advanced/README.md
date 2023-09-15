@@ -4,9 +4,11 @@ Choose this option when users might need to wait or can’t finish in one go. It
 
 1. To get started, update your `.env.example` to `.env` and add your keys.
 
+```
 BASE_URL=https://platform.flatfile.com/api
 FLATFILE_API_KEY=sk_1234 (your secret key)
 SPACE_ID=us_sp_1234
+```
 
 2. Then, start your server with run `npm run server` in your terminal`
 3. Then, run `npm run start-advanced mode` in your terminal to start your client.
