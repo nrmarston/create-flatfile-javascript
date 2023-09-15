@@ -9,11 +9,23 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
       "You must provide a publishable key and an environment ID - pass through in index.html"
     );
   }
+
   const flatfileOptions = {
     publishableKey,
     environmentId,
     workbook,
     listener,
+    sidebarConfig: {
+      showSidebar: false,
+    },
+    themeConfig: {
+      root: {
+        primaryColor: "red",
+      },
+      sidebar: {
+        logo: "https://images.ctfassets.net/hjneo4qi4goj/gL6Blz3kTPdZXWknuIDVx/7bb7c73d93b111ed542d2ed426b42fd5/flatfile.svg",
+      },
+    },
     // Additional props...
   };
 
