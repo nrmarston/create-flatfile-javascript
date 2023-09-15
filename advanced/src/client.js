@@ -11,7 +11,7 @@ window.openExistingFlatfileSpace = () => {
           id: space && space.data && space.data.id,
           accessToken: space && space.data && space.data.accessToken,
         },
-        displayAsModal: false,
+        // Additional props...
       };
       initializeFlatfile(flatfileOptions);
     })

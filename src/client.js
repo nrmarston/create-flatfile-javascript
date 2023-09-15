@@ -1,9 +1,9 @@
 import { initializeFlatfile } from "@flatfile/javascript";
 import { workbook } from "./workbook";
-import { configureFlatfileListener } from "../listeners/simple";
+import { listener } from "../listeners/simple";
 
 //create a new space in modal
-window.initializeNewFlatfileSpace = ({ publishableKey, environmentId }) => {
+window.openFlatfile = ({ publishableKey, environmentId }) => {
   if (!publishableKey && !environmentId) {
     throw new Error(
       "You must provide a publishable key and an environment ID - pass through in index.html"
@@ -11,11 +11,10 @@ window.initializeNewFlatfileSpace = ({ publishableKey, environmentId }) => {
   }
   const flatfileOptions = {
     publishableKey,
-    displayAsModal: true,
-    workbook,
     environmentId,
-    listener: configureFlatfileListener(),
-    // Additional parameters...
+    workbook,
+    listener,
+    // Additional props...
   };
 
   initializeFlatfile(flatfileOptions);
