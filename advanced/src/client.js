@@ -2,7 +2,7 @@ import { initializeFlatfile } from "@flatfile/javascript";
 const server_url = "http://localhost:8080";
 
 //open existing space in modal
-window.openExistingFlatfileSpace = () => {
+window.openFlatfile = () => {
   fetch(server_url + "/space") // Make a request to the server endpoint
     .then((response) => response.json())
     .then((space) => {
@@ -11,7 +11,10 @@ window.openExistingFlatfileSpace = () => {
           id: space && space.data && space.data.id,
           accessToken: space && space.data && space.data.accessToken,
         },
-        displayAsModal: false,
+        sidebarConfig: {
+          showSidebar: false,
+        },
+        // Additional props...
       };
       initializeFlatfile(flatfileOptions);
     })

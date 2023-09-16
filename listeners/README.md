@@ -14,11 +14,14 @@ Reference a listener in your flatfileOptions, that's it! Note: not all npm packa
 
 ### Developing with Flatfile server-side
 
-1. In your `.env`, make sure you have the follow:
+1. Open a terminal in the root of this project.
+2. In your `.env`, make sure you have the follow:
 
+```
 FLATFILE_ENVIRONMENT_ID=us_env_123456
 FLATFILE_API_KEY=sk_123456 (your secret key)
+```
 
-2. Run `npx flatfile develop <file path>` from terminal to launch a local listener.
+3. Run `npx flatfile@latest develop listeners/simple.js` from terminal to launch a local listener.
 
 When you're ready, deploy. Learn how [here](https://flatfile.com/docs/developer-tools/deploying).

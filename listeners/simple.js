@@ -1,38 +1,51 @@
 import { FlatfileListener } from "@flatfile/listener";
+import api, { FlatfileClient } from "@flatfile/api";
 import { recordHook } from "@flatfile/plugin-record-hook";
 
-/**
- * Example Listener
- */
-/// Define the custom listener logic as a separate function
-function customListenerLogic(client) {
-  client.on("**", (event) => {
+const flatfile = new FlatfileClient({
+  token: process.env.FLATFILE_API_KEY,
+  environment: process.env.BASE_URL + "/v1",
+});
+
+export const listener = FlatfileListener.create((listener) => {
+  listener.on("**", (event) => {
     console.log("Event =>", event);
   });
 
-  client.use(
-    recordHook("TestSheet", (record) => {
-      const firstName = record.get("first_name");
+  listener.use(
+    recordHook("contacts", (record) => {
+      const firstName = record.get("firstName");
       console.log({ firstName });
-      // Getting the real types here would be nice but seems tricky
-      record.set("last_name", "Rock");
+      record.set("lastName", "Rock");
       return record;
     })
   );
-}
 
-export default function configureFlatfileListener(listener) {
-  // If a listener is provided (server-side), configure it
-  if (listener) {
-    customListenerLogic(listener); // Reuse the custom listener logic function
-    return listener; // Return the configured listener
-  } else {
-    // If a listener is not provided (client-side), create a new one and apply the custom logic
-    console.log("make a workbook");
-    const newListener = FlatfileListener.create((client) => {
-      customListenerLogic(client); // Reuse the custom listener logic function
+  listener.filter({ job: "workbook:submitActionFg" }, (configure) => {
+    configure.on("job:ready", async ({ context: { jobId } }) => {
+      try {
+        await flatfile.jobs.ack(jobId, {
+          info: "Getting started.",
+          progress: 10,
+        });
+
+        // Make changes after cells in a Sheet have been updated
+        console.log("Make changes here when an action is clicked");
+
+        await flatfile.jobs.complete(jobId, {
+          outcome: {
+            message: "This job is now complete.",
+          },
+        });
+      } catch (error) {
+        console.error("Error:", error.stack);
+
+        await flatfile.jobs.fail(jobId, {
+          outcome: {
+            message: "This job encountered an error.",
+          },
+        });
+      }
     });
-    return newListener;
-    s;
-  }
-}
+  });
+});
