@@ -11,6 +11,7 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
   }
 
   const flatfileOptions = {
+    name: "Embedded Space",
     publishableKey,
     environmentId,
     workbook,
