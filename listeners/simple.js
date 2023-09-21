@@ -1,5 +1,5 @@
+import { FlatfileClient } from "@flatfile/api";
 import { FlatfileListener } from "@flatfile/listener";
-import api, { FlatfileClient } from "@flatfile/api";
 import { recordHook } from "@flatfile/plugin-record-hook";
 
 const flatfile = new FlatfileClient({
@@ -21,8 +21,10 @@ export const listener = FlatfileListener.create((listener) => {
     })
   );
 
-  listener.filter({ job: "workbook:submitActionFg" }, (configure) => {
-    configure.on("job:ready", async ({ context: { jobId } }) => {
+  listener.on(
+    "job:ready",
+    { job: "workbook:submitActionFg" },
+    async ({ context: { jobId } }) => {
       try {
         await flatfile.jobs.ack(jobId, {
           info: "Getting started.",
@@ -46,6 +48,6 @@ export const listener = FlatfileListener.create((listener) => {
           },
         });
       }
-    });
-  });
+    }
+  );
 });
