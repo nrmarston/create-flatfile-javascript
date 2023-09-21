@@ -9,7 +9,7 @@ const flatfile = new FlatfileClient({
 
 export const listener = FlatfileListener.create((listener) => {
   listener.on("**", (event) => {
-    console.log("Event =>", event);
+    console.log("Event =>", event.topic);
   });
 
   listener.use(
