@@ -10,10 +10,20 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
     );
   }
 
+  const mainDocument = {
+    title: "Getting Started",
+    body:
+      "\n" +
+      "# Welcome to your new importer!\n" +
+      "\n" +
+      "Please upload your contacts.\n",
+  };
+
   const flatfileOptions = {
     name: "Embedded Space",
     publishableKey,
     environmentId,
+    document: mainDocument,
     workbook,
     listener,
     sidebarConfig: {

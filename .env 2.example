@@ -1,0 +1,3 @@
+FLATFILE_API_KEY=sk_1234
+BASE_URL=https://platform.flatfile.com/api
+SPACE_ID=us_sp_1234
