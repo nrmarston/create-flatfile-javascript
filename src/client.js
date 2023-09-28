@@ -25,7 +25,7 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
     environmentId,
     document: mainDocument,
     workbook,
-    listener,
+    // listener,
     sidebarConfig: {
       showSidebar: false,
     },
