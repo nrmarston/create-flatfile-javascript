@@ -17,7 +17,7 @@ export const listener = FlatfileListener.create((listener) => {
     recordHook("contacts", (record) => {
 
       if (record.get('email')) {
-        const email = record.get("email") as string;
+        const email = record.get("email")
         const validEmailAddress = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
         if (!validEmailAddress.test(email)) {
           console.log("Invalid email address");
@@ -26,7 +26,7 @@ export const listener = FlatfileListener.create((listener) => {
       }
 
       if (record.get('country')) {
-        const country = record.get("country") as string;
+        const country = record.get("country")
         const validCountry = /^[A-Z]{2}$/;
         if (!validCountry.test(country)) {
           // console.log("Invalid country");
@@ -35,7 +35,7 @@ export const listener = FlatfileListener.create((listener) => {
       }
 
       if (record.get('firstName') && !record.get('lastName')) {
-        const fName = record.get('firstName') as string;
+        const fName = record.get('firstName')
         if (fName.includes(" ")) {
           const components = fName.split(" ");
           record.set('firstName', components.shift());
@@ -57,7 +57,7 @@ export const listener = FlatfileListener.create((listener) => {
 
       if (record.get('date')) {
         //reformat the date to ISO format
-        const date = record.get('date') as string
+        const date = record.get('date')
         let thisDate = format(new Date(date), "yyyy-MM-dd");
         //create var that holds the date value of the reformatted date as
         //thisDate is only a string
@@ -73,8 +73,8 @@ export const listener = FlatfileListener.create((listener) => {
       }
 
       if (record.get('zipCode') && record.get('country')) {
-        const zip = record.get('zipCode') as string
-        const country = record.get('country') as string
+        const zip = record.get('zipCode')
+        const country = record.get('country')
         if (zip && zip.length < 5 && country === "US") {
           record.set('zipCode', zip.padStart(5, '0'))
           record.addInfo('zipCode', 'Zipcode was padded with zeroes')

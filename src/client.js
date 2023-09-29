@@ -1,6 +1,7 @@
 import { initializeFlatfile } from "@flatfile/javascript";
-import { workbook } from "./workbook";
-import { listener } from "../listeners/simple";
+// import { workbook } from "./workbook";
+import { workbook } from "./HB-workbook";
+// import { listener } from "../listeners/simple";
 
 //create a new space in modal
 window.openFlatfile = ({ publishableKey, environmentId }) => {
@@ -27,15 +28,15 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
     workbook,
     // listener,
     sidebarConfig: {
-      showSidebar: false,
+      showSidebar: true,
     },
     themeConfig: {
       root: {
         primaryColor: "red",
       },
-      sidebar: {
-        logo: "https://images.ctfassets.net/hjneo4qi4goj/gL6Blz3kTPdZXWknuIDVx/7bb7c73d93b111ed542d2ed426b42fd5/flatfile.svg",
-      },
+      // sidebar: {
+      //   logo: "https://images.ctfassets.net/hjneo4qi4goj/gL6Blz3kTPdZXWknuIDVx/7bb7c73d93b111ed542d2ed426b42fd5/flatfile.svg",
+      // },
     },
     // Additional props...
   };
