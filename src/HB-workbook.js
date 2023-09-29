@@ -1,5 +1,3 @@
-// import { string, date } from "@flatfile/api/core/schemas";
-
 export const workbook = {
   name: "Frontend Data",
   labels: ["pinned"],
@@ -11,30 +9,30 @@ export const workbook = {
         {
           key: 'Borrower First/Middle Name',
           label: 'Borrower First/Middle Name',
-          type: string,
+          type: 'string',
           constraints: [{ "type": "required" }]
         },
         {
           key: 'Borrower Last Name/Suffix',
           label: 'Borrower Last Name/Suffix',
-          type: string
+          type: 'string'
         },
         {
           key: 'Borr Cell Phone',
           label: 'Borr Cell Phone',
-          type: string
+          type: 'string'
         },
         {
           key: 'Borr Email',
           label: 'Borr Email',
-          type: string,
+          type: 'string',
           constraints: [{ "type": "required" }]
         },
         {
           key: 'Borr DOB',
           label: 'Borr DOB',
           description: 'MM/DD/YYYY (This field is used to display reverse mortgage for eligible homeowners).',
-          type: date,
+          type: 'date',
           metadata: {
             format: 'M-d-yyyy'
           }
@@ -54,28 +52,28 @@ export const workbook = {
         {
           key: 'Co-Borrower First/Middle Name',
           label: 'Co-Borrower First Name',
-          type: string
+          type: 'string'
         },
         {
           key: 'Co-Borrower Last Name/Suffix',
           label: 'Co-Borrower Last Name',
-          type: string
+          type: 'string'
         },
         {
           key: 'Co-Borr Cell Phone',
           label: 'Co-Borr Phone',
-          type: string
+          type: 'string'
         },
         {
           key: 'Co-Borr Email',
           label: 'Co-Borr Email',
-          type: string
+          type: 'string'
         },
         {
-          keyi: 'Co-Borr DOB',
+          key: 'Co-Borr DOB',
           label: 'Co-Borr DOB',
           description: 'MM/DD/YYYY (This field is used to display reverse mortgage for eligible homeowners).',
-          type: date,
+          type: 'date',
           metadata: {
             format: 'M-d-yyyy'
           }
@@ -95,24 +93,24 @@ export const workbook = {
         {
           key: 'Subject Property Address',
           label: 'Subject Property Address',
-          type: string,
+          type: 'string',
           constraints: [{ "type": "required" }]
         },
         {
           key: 'Subject Property Zip',
           label: 'Subject Property Zip',
-          type: string,
+          type: 'string',
           constraints: [{ "type": "required" }]
         },
         {
           key: 'Subject Property Appraised Value',
           label: 'Subject Property Appraised Value',
-          type: string
+          type: 'string'
         },
         {
           key: 'Subject Property Appraised Date',
           label: 'Subject Property Appraised Date',
-          type: date,
+          type: 'date',
           metadata: {
             format: 'M-d-yyyy'
           },
@@ -121,12 +119,12 @@ export const workbook = {
         {
           key: 'Subject Property Purchase Price',
           label: 'Subject Property Purchase Price',
-          type: string
+          type: 'string'
         },
         {
           key: 'Subject Property Purchase Date',
           label: 'Subject Property Purchase Date',
-          type: string,
+          type: 'string',
           description: 'Smart dates',
         }
       ]
