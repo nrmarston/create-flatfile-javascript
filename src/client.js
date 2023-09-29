@@ -1,10 +1,11 @@
 import { initializeFlatfile } from "@flatfile/javascript";
 // import { workbook } from "./workbook";
 import { workbook } from "./HB-workbook";
-// import { listener } from "../listeners/simple";
+import { listener } from "../listeners/simple";
 
 //create a new space in modal
 window.openFlatfile = ({ publishableKey, environmentId }) => {
+  console.log("hello world")
   if (!publishableKey && !environmentId) {
     throw new Error(
       "You must provide a publishable key and an environment ID - pass through in index.html"
@@ -26,7 +27,7 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
     environmentId,
     document: mainDocument,
     workbook,
-    // listener,
+    listener,
     sidebarConfig: {
       showSidebar: true,
     },
