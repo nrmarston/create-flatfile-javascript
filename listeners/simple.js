@@ -12,42 +12,42 @@ export const listener = FlatfileListener.create((listener) => {
     console.log("Event =>", event.topic);
   });
 
-  listener.use(
-    recordHook("contacts", (record) => {
-      const firstName = record.get("firstName");
-      console.log({ firstName });
-      record.set("lastName", "Rock");
-      return record;
-    })
-  );
+  // listener.use(
+  //   recordHook("contacts", (record) => {
+  //     const firstName = record.get("firstName");
+  //     console.log({ firstName });
+  //     record.set("lastName", "Rock");
+  //     return record;
+  //   })
+  // );
 
-  listener.on(
-    "job:ready",
-    { job: "workbook:submitActionFg" },
-    async ({ context: { jobId } }) => {
-      try {
-        await flatfile.jobs.ack(jobId, {
-          info: "Getting started.",
-          progress: 10,
-        });
+  // listener.on(
+  //   "job:ready",
+  //   { job: "workbook:submitActionFg" },
+  //   async ({ context: { jobId } }) => {
+  //     try {
+  //       await flatfile.jobs.ack(jobId, {
+  //         info: "Getting started.",
+  //         progress: 10,
+  //       });
 
-        // Make changes after cells in a Sheet have been updated
-        console.log("Make changes here when an action is clicked");
+  //       // Make changes after cells in a Sheet have been updated
+  //       console.log("Make changes here when an action is clicked");
 
-        await flatfile.jobs.complete(jobId, {
-          outcome: {
-            message: "This job is now complete.",
-          },
-        });
-      } catch (error) {
-        console.error("Error:", error.stack);
+  //       await flatfile.jobs.complete(jobId, {
+  //         outcome: {
+  //           message: "This job is now complete.",
+  //         },
+  //       });
+  //     } catch (error) {
+  //       console.error("Error:", error.stack);
 
-        await flatfile.jobs.fail(jobId, {
-          outcome: {
-            message: "This job encountered an error.",
-          },
-        });
-      }
-    }
-  );
+  //       await flatfile.jobs.fail(jobId, {
+  //         outcome: {
+  //           message: "This job encountered an error.",
+  //         },
+  //       });
+  //     }
+  //   }
+  // );
 });
