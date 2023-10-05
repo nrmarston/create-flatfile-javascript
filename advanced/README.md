@@ -16,4 +16,4 @@ SPACE_ID=us_sp_1234
 5. Head to your `localhost` url output in the terminal and click the Flatfile button. You'll see your Space just as you left it last time.
 6. Upload a file (find getting-started.csv in root) or manually enter some data.
 
-For more instructions, follow the guide [here](flatfile.com/docs/guides/use-cases/embedding/javascript)
+For more instructions, follow the guide [here](https://flatfile.com/docs/guides/use-cases/embedding/javascript)
