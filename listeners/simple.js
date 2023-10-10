@@ -36,7 +36,11 @@ export const listener = FlatfileListener.create((listener) => {
 
         await flatfile.jobs.complete(jobId, {
           outcome: {
-            message: "This job is now complete.",
+            acknowledge: true,
+            message: "This is now complete.",
+            next: {
+              type: "wait",
+            },
           },
         });
       } catch (error) {
