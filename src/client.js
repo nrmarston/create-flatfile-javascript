@@ -31,7 +31,6 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
         logo: "https://images.ctfassets.net/hjneo4qi4goj/gL6Blz3kTPdZXWknuIDVx/7bb7c73d93b111ed542d2ed426b42fd5/flatfile.svg",
       },
     },
-    ...(spaceId ? { spaceId } : {}), // Include spaceId conditionally
     // Additional props...
   };
 
