@@ -16,6 +16,10 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
     environmentId,
     workbook,
     listener,
+    closeSpace: {
+      operation: "submitActionFg",
+      onClose: () => setShowSpace(false),
+    },
     sidebarConfig: {
       showSidebar: false,
     },
