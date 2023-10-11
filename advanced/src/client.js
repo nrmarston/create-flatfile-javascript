@@ -44,6 +44,10 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
             publishableKey,
             environmentId,
             workbook,
+            spaceBody: {
+              name: "New Space",
+              namespace: "Red",
+            },
             sidebarConfig: {
               showSidebar: true,
             },
