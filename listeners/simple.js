@@ -1,11 +1,6 @@
-import { FlatfileClient } from "@flatfile/api";
+import api from "@flatfile/api";
 import { FlatfileListener } from "@flatfile/listener";
 import { recordHook } from "@flatfile/plugin-record-hook";
-
-const flatfile = new FlatfileClient({
-  token: process.env.FLATFILE_API_KEY,
-  environment: process.env.BASE_URL + "/v1",
-});
 
 export const listener = FlatfileListener.create((listener) => {
   listener.on("**", (event) => {
@@ -26,7 +21,7 @@ export const listener = FlatfileListener.create((listener) => {
     { job: "workbook:submitActionFg" },
     async ({ context: { jobId } }) => {
       try {
-        await flatfile.jobs.ack(jobId, {
+        await api.jobs.ack(jobId, {
           info: "Getting started.",
           progress: 10,
         });
@@ -34,7 +29,7 @@ export const listener = FlatfileListener.create((listener) => {
         // Make changes after cells in a Sheet have been updated
         console.log("Make changes here when an action is clicked");
 
-        await flatfile.jobs.complete(jobId, {
+        await api.jobs.complete(jobId, {
           outcome: {
             acknowledge: true,
             message: "This is now complete.",
@@ -46,7 +41,7 @@ export const listener = FlatfileListener.create((listener) => {
       } catch (error) {
         console.error("Error:", error.stack);
 
-        await flatfile.jobs.fail(jobId, {
+        await api.jobs.fail(jobId, {
           outcome: {
             message: "This job encountered an error.",
           },
