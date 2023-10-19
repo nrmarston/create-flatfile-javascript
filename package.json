@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel public/index.html",
-    "start-advanced-mode": "parcel advanced/public/index.html",
+    "start": "parcel public/index.html --no-cache",
+    "start-advanced-mode": "parcel advanced/public/index.html --no-cache",
     "server": "node advanced/src/server.mjs"
   },
   "keywords": [],
