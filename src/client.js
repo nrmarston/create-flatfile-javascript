@@ -23,6 +23,14 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
     sidebarConfig: {
       showSidebar: false,
     },
+    spaceBody: {
+      namespace: "portal",
+    },
+    userInfo: {
+      name: "Peter Piper no id",
+      companyId: "ff_123",
+      companyName: "Piper Orgs",
+    },
     themeConfig: {
       root: {
         primaryColor: "red",
