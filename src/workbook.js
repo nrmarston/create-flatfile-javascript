@@ -27,8 +27,8 @@ export const workbook = {
   actions: [
     {
       operation: "submitActionFg",
-      mode: "background",
-      label: "Submit Contacts",
+      mode: "foreground",
+      label: "Submit Data",
       description: "Submit data to webhook.site",
       primary: true,
     },
