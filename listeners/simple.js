@@ -9,9 +9,8 @@ export const listener = FlatfileListener.create((listener) => {
 
   listener.use(
     recordHook("contacts", (record) => {
-      const firstName = record.get("firstName");
-      console.log({ firstName });
-      record.set("lastName", "Rock");
+      record.set("firstName", "Brock");
+      record.set("lastName", "Lee");
       return record;
     })
   );
