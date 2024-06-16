@@ -15,12 +15,6 @@ export const listener = FlatfileListener.create((listener) => {
     })
   );
 
-  listener.use(
-    recordHook("companies", (record) => {
-      return record;
-    })
-  );
-
   listener.on(
     "job:ready",
     { job: "workbook:submitActionFg" },
