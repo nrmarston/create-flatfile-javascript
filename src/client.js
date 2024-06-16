@@ -1,7 +1,6 @@
 import { initializeFlatfile } from "@flatfile/javascript";
 import { workbook } from "./workbook";
 import { listener } from "../listeners/simple";
-import { accentColors } from "@radix-ui/themes/props";
 
 //create a new space in modal
 window.openFlatfile = ({ publishableKey, environmentId }) => {
@@ -28,6 +27,7 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
       root: {
         primaryColor: "#3E63DD",
         actionColor: "#3E63DD",
+        fontFamily: "system-ui",
       },
       sidebar: {
         logo: "https://img.logoipsum.com/282.svg",
