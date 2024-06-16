@@ -11,7 +11,7 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
   }
 
   const flatfileOptions = {
-    name: "Ipsum Corp",
+    name: "Contact",
     publishableKey,
     environmentId,
     workbook,

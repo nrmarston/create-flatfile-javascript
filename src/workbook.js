@@ -23,37 +23,6 @@ export const workbook = {
         },
       ],
     },
-    {
-      name: "Companies",
-      slug: "companies",
-      fields: [
-        {
-          key: "name",
-          type: "string",
-          label: "Name",
-        },
-        {
-          key: "summary",
-          type: "string",
-          label: "Summary",
-        },
-        {
-          key: "phone",
-          type: "phone",
-          label: "Phone",
-        },
-        {
-          key: "email",
-          type: "email",
-          label: "Email",
-        },
-        {
-          key: "website",
-          type: "url",
-          label: "Website",
-        },
-      ],
-    },
   ],
   actions: [
     {
