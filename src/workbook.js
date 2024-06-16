@@ -23,6 +23,27 @@ export const workbook = {
         },
       ],
     },
+    {
+      name: "Products",
+      slug: "products",
+      fields: [
+        {
+          key: "productName",
+          type: "string",
+          label: "Product Name",
+        },
+        {
+          key: "price",
+          type: "number",
+          label: "Price",
+        },
+        {
+          key: "SKU",
+          type: "string",
+          label: "SKU",
+        },
+      ],
+    },
   ],
   actions: [
     {
