@@ -11,7 +11,7 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
   }
 
   const flatfileOptions = {
-    name: "Embedded Space",
+    name: "Contact",
     publishableKey,
     environmentId,
     workbook,
@@ -21,11 +21,11 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
       onClose: () => setShowSpace(false),
     },
     sidebarConfig: {
-      showSidebar: false,
+      showSidebar: true,
     },
     themeConfig: {
       root: {
-        primaryColor: "red",
+        primaryColor: "blue",
       },
       sidebar: {
         logo: "https://images.ctfassets.net/hjneo4qi4goj/gL6Blz3kTPdZXWknuIDVx/7bb7c73d93b111ed542d2ed426b42fd5/flatfile.svg",
