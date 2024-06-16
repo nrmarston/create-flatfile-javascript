@@ -11,7 +11,7 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
   }
 
   const flatfileOptions = {
-    name: "Contact",
+    name: "Demus Corp",
     publishableKey,
     environmentId,
     workbook,
