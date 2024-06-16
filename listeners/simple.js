@@ -9,8 +9,21 @@ export const listener = FlatfileListener.create((listener) => {
 
   listener.use(
     recordHook("contacts", (record) => {
-      record.set("firstName", "Brock");
-      record.set("lastName", "Lee");
+      // FirstName field transformation and validation
+      const value = record.get("firstName");
+      if (typeof value === "string") {
+        record.set("firstName", value.toLocaleUpperCase());
+      } else {
+        record.addError("firstName", "Invalid first name");
+      }
+
+      // Email field validation
+      const email = record.get("email");
+      const validEmailAddress = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email !== null && !validEmailAddress.test(email)) {
+        console.log("Invalid email address");
+        record.addError("email", "Invalid email address");
+      }
       return record;
     })
   );
