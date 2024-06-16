@@ -28,6 +28,7 @@ window.openFlatfile = ({ publishableKey, environmentId }) => {
         primaryColor: "#3E63DD",
         actionColor: "#3E63DD",
         fontFamily: "system-ui",
+        buttonBorderRadius: "6px",
       },
       sidebar: {
         logo: "https://img.logoipsum.com/282.svg",
